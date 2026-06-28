@@ -1,201 +1,471 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devender Kumar — Senior AI Engineer</title>
 <style>
-  * { box-sizing: border-box; }
-  .gh { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 1.5rem; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); }
-  .gh h1 { font-size: 22px; font-weight: 500; text-align: center; margin: 0 0 4px; color: var(--color-text-primary); }
-  .gh h3 { font-size: 13px; font-weight: 400; text-align: center; color: var(--color-text-secondary); margin: 0 0 12px; }
-  .badge-row { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 1rem; }
-  .badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; padding: 3px 10px; border-radius: 4px; font-weight: 500; }
-  .b-linkedin { background: #0A66C2; color: #fff; }
-  .b-aws { background: #232F3E; color: #FF9900; }
-  .b-gmail { background: #D14836; color: #fff; }
-  .b-views { background: #E6F1FB; color: #185FA5; }
-  .divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 1rem 0; }
-  .about-block { font-size: 13px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 1rem; }
-  .about-block strong { color: var(--color-text-primary); font-weight: 500; }
-  .bullet-list { margin: 8px 0; padding-left: 18px; }
-  .bullet-list li { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 4px; line-height: 1.6; }
-  .bullet-list li strong { color: var(--color-text-primary); font-weight: 500; }
-  .callout { background: var(--color-background-secondary); border-left: 3px solid #1A56DB; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 10px 14px; font-size: 12px; color: var(--color-text-secondary); margin: 12px 0; font-style: italic; }
-  .section-h { font-size: 16px; font-weight: 500; color: var(--color-text-primary); margin: 1.2rem 0 10px; }
-  .stack-group { margin-bottom: 10px; }
-  .stack-label { font-size: 11px; color: var(--color-text-tertiary); margin-bottom: 5px; }
-  .stack-badges { display: flex; flex-wrap: wrap; gap: 5px; }
-  .sb { font-size: 11px; padding: 3px 9px; border-radius: 4px; font-weight: 500; color: #fff; }
-  .sb-dark { background: #1C3C3C; }
-  .sb-teal { background: #009688; }
-  .sb-purple { background: #6A0DAD; }
-  .sb-orange { background: #E25A1C; }
-  .sb-black { background: #231F20; }
-  .sb-aws { background: #FF9900; color: #232F3E; }
-  .sb-blue { background: #0194E2; }
-  .sb-kb { background: #2496ED; }
-  .sb-k8s { background: #326CE5; }
-  .sb-tf { background: #7B42BC; }
-  .sb-gh { background: #2088FF; }
-  .sb-hf { background: #FFD21E; color: #333; }
-  .sb-py { background: #3776AB; }
-  .sb-pbi { background: #F2C811; color: #333; }
-  .sb-gcp { background: #4285F4; }
-  .project-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 12px 14px; margin-bottom: 10px; }
-  .proj-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 3px; }
-  .proj-stack { font-size: 11px; color: var(--color-text-tertiary); margin: 0 0 8px; }
-  .proj-desc { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; margin: 0 0 8px; }
-  .stat-row { display: flex; flex-wrap: wrap; gap: 6px; }
-  .stat { font-size: 11px; background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); border-radius: 4px; padding: 2px 8px; color: var(--color-text-secondary); }
-  .stat strong { color: var(--color-text-primary); font-weight: 500; }
-  .code-block { background: var(--color-background-tertiary); border-radius: var(--border-radius-md); padding: 10px 12px; font-family: 'SF Mono', monospace; font-size: 10px; color: var(--color-text-secondary); line-height: 1.7; margin: 8px 0; overflow-x: auto; }
-  .cert-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 12px; }
-  .cert-row:last-child { border-bottom: none; }
-  .cert-name { color: var(--color-text-primary); }
-  .cert-org { color: var(--color-text-tertiary); }
-  .wip-item { display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 12px; color: var(--color-text-secondary); }
-  .wip-dot { width: 8px; height: 8px; border-radius: 50%; background: #1A56DB; flex-shrink: 0; }
-  .stats-placeholder { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
-  .stat-card-gh { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 12px; text-align: center; }
-  .stat-card-gh .num { font-size: 20px; font-weight: 500; color: var(--color-text-primary); }
-  .stat-card-gh .lbl { font-size: 11px; color: var(--color-text-tertiary); margin-top: 2px; }
-  .footer-note { text-align: center; font-size: 11px; color: var(--color-text-tertiary); margin-top: 1rem; }
+  :root{
+    --paper:#F6F4EF;
+    --ink:#16201C;
+    --line:#C9C2AE;
+    --signal:#0E7C66;
+    --signal-dim:#D9EFE9;
+    --warn:#B5491A;
+    --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+    --disp: "Space Grotesk", "Inter", sans-serif;
+    --body: "Inter", "Helvetica Neue", sans-serif;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--signal); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  .wrap{max-width:980px; margin:0 auto; padding:0 32px;}
+
+  /* ===== schematic grid background ===== */
+  .grid-bg{
+    position:fixed; inset:0; z-index:-1;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:48px 48px;
+    opacity:0.18;
+  }
+
+  /* ===== header / hero ===== */
+  header{
+    padding:64px 0 48px;
+    border-bottom:1.5px solid var(--ink);
+    position:relative;
+  }
+  .tag{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--signal);
+    border:1px solid var(--signal);
+    display:inline-block;
+    padding:4px 10px;
+    border-radius:2px;
+    margin-bottom:22px;
+  }
+  h1{
+    font-family:var(--disp);
+    font-weight:700;
+    font-size:clamp(40px, 7vw, 76px);
+    letter-spacing:-0.02em;
+    line-height:0.98;
+  }
+  .role{
+    font-family:var(--mono);
+    font-size:clamp(14px,2vw,18px);
+    color:var(--ink);
+    margin-top:18px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    align-items:center;
+  }
+  .role .sep{color:var(--line);}
+  .role .accent{color:var(--signal); font-weight:500;}
+
+  .hero-foot{
+    margin-top:38px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  .summary{
+    max-width:560px;
+    font-size:16.5px;
+    color:#3a4640;
+  }
+  nav.links{
+    font-family:var(--mono);
+    font-size:13px;
+    display:flex;
+    gap:18px;
+  }
+  nav.links a{
+    color:var(--ink);
+    border-bottom:1px solid var(--ink);
+    padding-bottom:2px;
+  }
+  nav.links a:hover{color:var(--signal); border-color:var(--signal); text-decoration:none;}
+
+  /* ===== section scaffolding ===== */
+  section{padding:56px 0; border-bottom:1px solid var(--line);}
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:34px;
+  }
+  .sec-id{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--signal);
+    letter-spacing:.08em;
+  }
+  .sec-title{
+    font-family:var(--disp);
+    font-weight:600;
+    font-size:28px;
+    letter-spacing:-0.01em;
+  }
+  .sec-rule{flex:1; height:1px; background:var(--line); align-self:center;}
+
+  /* ===== stack / skills as circuit rows ===== */
+  .stack-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:0;
+    border:1px solid var(--ink);
+  }
+  .stack-cell{
+    padding:22px 24px;
+    border-right:1px solid var(--ink);
+    border-bottom:1px solid var(--ink);
+  }
+  .stack-grid .stack-cell:last-child,
+  .stack-grid .stack-cell:nth-child(2n){border-right:1px solid var(--ink);}
+  .stack-cell:nth-last-child(-n+2){border-bottom:none;}
+  @media (max-width:640px){
+    .stack-cell{border-right:none !important; border-bottom:1px solid var(--ink) !important;}
+    .stack-cell:last-child{border-bottom:none !important;}
+  }
+  .stack-label{
+    font-family:var(--mono);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:var(--warn);
+    margin-bottom:10px;
+  }
+  .stack-items{
+    font-size:14.5px;
+    color:#222;
+    line-height:1.7;
+  }
+  .stack-items b{font-weight:600;}
+
+  /* ===== experience ===== */
+  .exp-block{
+    display:grid;
+    grid-template-columns:160px 1fr;
+    gap:28px;
+  }
+  @media (max-width:640px){.exp-block{grid-template-columns:1fr;}}
+  .exp-time{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--ink);
+    padding-top:4px;
+  }
+  .exp-time .co{
+    font-family:var(--disp);
+    font-weight:600;
+    font-size:17px;
+    display:block;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  .exp-list{list-style:none;}
+  .exp-list li{
+    position:relative;
+    padding-left:22px;
+    margin-bottom:12px;
+    font-size:15px;
+    color:#2b352f;
+  }
+  .exp-list li::before{
+    content:"›";
+    position:absolute;
+    left:0;
+    color:var(--signal);
+    font-family:var(--mono);
+    font-weight:700;
+  }
+
+  /* ===== projects ===== */
+  .proj-list{display:flex; flex-direction:column;}
+  .proj{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:20px;
+    padding:26px 0;
+    border-top:1px solid var(--line);
+  }
+  .proj:first-child{border-top:none;}
+  .proj-no{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--line);
+    padding-top:3px;
+  }
+  .proj-name{
+    font-family:var(--disp);
+    font-weight:600;
+    font-size:19px;
+    margin-bottom:8px;
+  }
+  .proj-desc{font-size:15px; color:#39443d; max-width:680px;}
+  .proj-tags{
+    margin-top:12px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .proj-tags span{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--signal);
+    background:var(--signal-dim);
+    padding:3px 9px;
+    border-radius:20px;
+  }
+
+  /* ===== education / certs ===== */
+  .edu-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+  }
+  @media (max-width:640px){.edu-grid{grid-template-columns:1fr;}}
+  .edu-grid h4{
+    font-family:var(--mono);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:var(--warn);
+    margin-bottom:14px;
+  }
+  .edu-grid ul{list-style:none;}
+  .edu-grid li{
+    font-size:15px;
+    padding:9px 0;
+    border-bottom:1px dashed var(--line);
+  }
+
+  /* ===== footer ===== */
+  footer{
+    padding:56px 0 70px;
+    text-align:center;
+  }
+  footer .big{
+    font-family:var(--disp);
+    font-weight:700;
+    font-size:clamp(28px,5vw,44px);
+    letter-spacing:-0.01em;
+    margin-bottom:18px;
+  }
+  footer a.cta{
+    font-family:var(--mono);
+    font-size:14px;
+    border:1.5px solid var(--ink);
+    padding:10px 22px;
+    border-radius:2px;
+    display:inline-block;
+  }
+  footer a.cta:hover{
+    background:var(--ink);
+    color:var(--paper);
+    text-decoration:none;
+  }
+  footer .micro{
+    margin-top:30px;
+    font-family:var(--mono);
+    font-size:12px;
+    color:#7c8079;
+  }
+
+  ::selection{background:var(--signal); color:var(--paper);}
 </style>
+</head>
+<body>
 
-<div class="gh">
-  <h2 class="sr-only">GitHub profile README preview for Devender Kumar</h2>
+<div class="grid-bg"></div>
 
-  <h1>Devender Kumar</h1>
-  <h3>AI Engineer · LLM Systems · Agentic AI · RAG · LLMOps</h3>
-  <div class="badge-row">
-    <span class="badge b-linkedin"><i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn</span>
-    <span class="badge b-gmail"><i class="ti ti-mail" aria-hidden="true"></i> dev.kumarsantosh@gmail.com</span>
-    <span class="badge b-aws"><i class="ti ti-award" aria-hidden="true"></i> AWS Certified</span>
-    <span class="badge b-views"><i class="ti ti-eye" aria-hidden="true"></i> Profile views</span>
-  </div>
+<div class="wrap">
 
-  <hr class="divider">
-
-  <div class="section-h">About me</div>
-  <div class="about-block">I build AI systems that work in <strong>production</strong> — not just in notebooks.<br><br>
-  With 4+ years at the intersection of data engineering, machine learning, and generative AI, I've shipped:</div>
-  <ul class="bullet-list">
-    <li><strong>Multi-agent RAG platforms</strong> using LangGraph + AWS Bedrock + Pinecone — 93% Ragas faithfulness, sub-2s latency</li>
-    <li><strong>Agentic AI workflows</strong> with MCP tool integrations for autonomous anomaly triage and executive reporting</li>
-    <li><strong>Distributed cyber intelligence pipelines</strong> (Apache Spark + Kafka) processing 10M+ daily records at national scale</li>
-    <li><strong>AI-powered FinOps systems</strong> detecting $2M+ in cloud anomalies across AWS, GCP, and Azure</li>
-  </ul>
-  <div class="callout">I care about LLMOps pipelines with real evaluation, multi-agent systems that actually complete complex tasks autonomously, and RAG that's secured with proper guardrails — not demo-ware.</div>
-
-  <hr class="divider">
-
-  <div class="section-h">Tech stack</div>
-  <div class="stack-group">
-    <div class="stack-label">AI & LLM Engineering</div>
-    <div class="stack-badges">
-      <span class="sb sb-dark">LangChain</span><span class="sb sb-dark">LangGraph</span><span class="sb sb-purple">LlamaIndex</span><span class="sb sb-teal">FastAPI</span><span class="sb sb-purple">GPT-4o</span><span class="sb sb-aws">AWS Bedrock</span><span class="sb sb-hf">Hugging Face</span>
+  <header>
+    <span class="tag">// available for select engagements</span>
+    <h1>Devender<br>Kumar</h1>
+    <div class="role">
+      <span class="accent">Senior AI Engineer</span>
+      <span class="sep">/</span>
+      <span>GenAI</span>
+      <span class="sep">·</span>
+      <span>Agentic AI</span>
+      <span class="sep">·</span>
+      <span>Cloud AI</span>
     </div>
-  </div>
-  <div class="stack-group" style="margin-top:8px;">
-    <div class="stack-label">LLMOps & Evaluation</div>
-    <div class="stack-badges">
-      <span class="sb sb-dark">LangSmith</span><span class="sb sb-blue">MLflow</span><span class="sb sb-purple">Ragas</span><span class="sb" style="background:#E84142;">Guardrails AI</span><span class="sb" style="background:#00B388;color:#fff;">Pinecone</span>
+    <div class="hero-foot">
+      <p class="summary">AI Engineer with 4+ years building production-grade AI, RAG, cloud-native analytics, and enterprise AI systems — the kind that hold up after the demo ends.</p>
+      <nav class="links">
+        <a href="https://devkumarsantosh.github.io">Portfolio</a>
+        <a href="mailto:youremail@example.com">Email</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-  </div>
-  <div class="stack-group" style="margin-top:8px;">
-    <div class="stack-label">Cloud & DevOps</div>
-    <div class="stack-badges">
-      <span class="sb sb-aws">AWS</span><span class="sb sb-gcp">GCP</span><span class="sb sb-kb">Docker</span><span class="sb sb-k8s">Kubernetes</span><span class="sb sb-tf">Terraform</span><span class="sb sb-gh">GitHub Actions</span>
+  </header>
+
+  <section id="stack">
+    <div class="sec-head">
+      <span class="sec-id">01</span>
+      <span class="sec-title">Stack</span>
+      <span class="sec-rule"></span>
     </div>
-  </div>
-  <div class="stack-group" style="margin-top:8px;">
-    <div class="stack-label">Data Engineering</div>
-    <div class="stack-badges">
-      <span class="sb sb-orange">Apache Spark</span><span class="sb sb-black">Kafka</span><span class="sb sb-py">Python</span><span class="sb sb-pbi">Power BI</span>
+    <div class="stack-grid">
+      <div class="stack-cell">
+        <div class="stack-label">AI Engineering</div>
+        <div class="stack-items"><b>Python</b> · LangGraph · LangChain · LlamaIndex · FastAPI · MCP · Agentic AI · Tool Calling</div>
+      </div>
+      <div class="stack-cell">
+        <div class="stack-label">LLMs &amp; Retrieval</div>
+        <div class="stack-items"><b>GPT</b> · Claude · Gemini · Llama · Prompt Engineering · RAG · Hybrid Search</div>
+      </div>
+      <div class="stack-cell">
+        <div class="stack-label">Cloud</div>
+        <div class="stack-items"><b>AWS Bedrock</b> · Lambda · ECS · S3 · OpenSearch · GCP BigQuery</div>
+      </div>
+      <div class="stack-cell">
+        <div class="stack-label">Deployment</div>
+        <div class="stack-items"><b>Docker</b> · Kubernetes · Terraform · GitHub Actions</div>
+      </div>
+      <div class="stack-cell">
+        <div class="stack-label">LLMOps</div>
+        <div class="stack-items"><b>LangSmith</b> · MLflow · Ragas · DeepEval · Prompt Versioning</div>
+      </div>
+      <div class="stack-cell">
+        <div class="stack-label">Focus</div>
+        <div class="stack-items">Multi-agent systems · production RAG · cloud cost optimization · LLM evaluation pipelines</div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <hr class="divider">
-
-  <div class="section-h">Featured projects</div>
-
-  <div class="project-card">
-    <div class="proj-title">GenAI Enterprise Data Intelligence Assistant</div>
-    <div class="proj-stack">LangGraph · FastAPI · AWS Bedrock · Pinecone · LangSmith · Ragas · Guardrails AI</div>
-    <div class="proj-desc">Production multi-agent RAG platform with hybrid semantic + BM25 search, full LLMOps pipeline, and enterprise security guardrails.</div>
-    <div class="code-block">Enterprise Sources → Chunking + Embedding → Pinecone (hybrid search)
-                                    ↓
-             LangGraph Multi-Agent (Retrieval · SQL · Synthesis agents)
-                                    ↓
-                    FastAPI · Redis Cache · LangSmith Tracing</div>
-    <div class="stat-row">
-      <span class="stat"><strong>93%</strong> Ragas faithfulness</span>
-      <span class="stat"><strong>40%</strong> answer relevance gain</span>
-      <span class="stat"><strong>sub-2s</strong> P95 latency</span>
+  <section id="experience">
+    <div class="sec-head">
+      <span class="sec-id">02</span>
+      <span class="sec-title">Experience</span>
+      <span class="sec-rule"></span>
     </div>
-  </div>
-
-  <div class="project-card">
-    <div class="proj-title">Infinium — Distributed Cyber Intelligence Platform</div>
-    <div class="proj-stack">Apache Spark · Kafka · Docker · Kubernetes · Solr · NLP · Anomaly Detection</div>
-    <div class="proj-desc">Terabyte-scale IPDR/CDR intelligence pipeline for national cyber operations with AI-powered threat analysis.</div>
-    <div class="stat-row">
-      <span class="stat"><strong>10M+</strong> daily records</span>
-      <span class="stat"><strong>65%</strong> faster investigations</span>
-      <span class="stat"><strong>99.9%</strong> uptime SLA</span>
+    <div class="exp-block">
+      <div class="exp-time">
+        <span class="co">Clear-Trail Technologies</span>
+        2022 — Present
+      </div>
+      <ul class="exp-list">
+        <li>Led production analytics, cloud optimization, and GenAI initiatives across teams</li>
+        <li>Built RAG solutions and automated workflows that replaced manual, multi-hour processes</li>
+        <li>Delivered cloud cost optimization and production hotfixes under real operational pressure</li>
+        <li>Owned stakeholder communication and technical leadership across cross-functional releases</li>
+      </ul>
     </div>
-  </div>
+  </section>
 
-  <div class="project-card">
-    <div class="proj-title">Cloud Cost Optimization & AI FinOps Platform</div>
-    <div class="proj-stack">AWS · GCP · Azure · Isolation Forest · LSTM · ARIMA · Power BI</div>
-    <div class="proj-desc">Multi-cloud FinOps intelligence system with predictive anomaly detection across $5M+ annual cloud spend.</div>
-    <div class="stat-row">
-      <span class="stat"><strong>35–53%</strong> cost savings</span>
-      <span class="stat"><strong>$2M+</strong> anomalies flagged</span>
-      <span class="stat"><strong>91%</strong> forecast accuracy</span>
+  <section id="projects">
+    <div class="sec-head">
+      <span class="sec-id">03</span>
+      <span class="sec-title">Flagship Projects</span>
+      <span class="sec-rule"></span>
     </div>
-  </div>
+    <div class="proj-list">
 
-  <div class="project-card">
-    <div class="proj-title">ProgressPro — AI-Augmented Delivery Analytics</div>
-    <div class="proj-stack">Power BI · Apache Spark · XGBoost · Transformers · SQL</div>
-    <div class="proj-desc">Sprint intelligence platform with NLP risk classification — 500K+ records, 88% precision risk flagging.</div>
-    <div class="stat-row">
-      <span class="stat"><strong>88%</strong> NLP risk precision</span>
-      <span class="stat"><strong>100→28 min</strong> dashboard load</span>
-      <span class="stat"><strong>35%</strong> better predictability</span>
+      <div class="proj">
+        <div class="proj-no">01</div>
+        <div>
+          <div class="proj-name">Enterprise AI Analytics Copilot</div>
+          <div class="proj-desc">A multi-agent analytics platform that turns a business question into a chart and the reasoning behind it — LangGraph orchestration, Text-to-SQL, RAG, and Plotly, served through FastAPI on AWS.</div>
+          <div class="proj-tags"><span>LangGraph</span><span>Text-to-SQL</span><span>RAG</span><span>FastAPI</span><span>AWS</span></div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-no">02</div>
+        <div>
+          <div class="proj-name">Enterprise Multi-Agent Knowledge Platform</div>
+          <div class="proj-desc">Hybrid RAG across enterprise documents with persistent memory, source citations, and multimodal support — built so every answer is traceable back to a source, not just plausible.</div>
+          <div class="proj-tags"><span>Hybrid RAG</span><span>Vector DB</span><span>Citations</span><span>Multimodal</span></div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-no">03</div>
+        <div>
+          <div class="proj-name">AI Cloud Operations Platform</div>
+          <div class="proj-desc">An AIOps system for incident analysis, cloud cost optimization, and automated remediation — turning "something's wrong" into "here's what's wrong and here's the fix."</div>
+          <div class="proj-tags"><span>AIOps</span><span>Cost Optimization</span><span>Automated Remediation</span></div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-no">04</div>
+        <div>
+          <div class="proj-name">Enterprise LLMOps Platform</div>
+          <div class="proj-desc">The infrastructure layer most teams skip: prompt registry, evaluation pipelines, guardrails, monitoring, and model routing — the difference between a demo and a system you can trust.</div>
+          <div class="proj-tags"><span>Prompt Registry</span><span>Evaluation</span><span>Guardrails</span><span>Model Routing</span></div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-no">05</div>
+        <div>
+          <div class="proj-name">AI Software Engineering Assistant</div>
+          <div class="proj-desc">A repository-aware coding assistant with code search, PR review, and documentation generation — an agent that understands the codebase it's actually working in.</div>
+          <div class="proj-tags"><span>Code Search</span><span>PR Review</span><span>Docs Generation</span></div>
+        </div>
+      </div>
+
     </div>
-  </div>
+  </section>
 
-  <hr class="divider">
-
-  <div class="section-h">GitHub stats</div>
-  <div class="stats-placeholder">
-    <div class="stat-card-gh">
-      <div class="num" style="color:#1A56DB;">Python · SQL · PySpark</div>
-      <div class="lbl">Primary languages</div>
+  <section id="education">
+    <div class="sec-head">
+      <span class="sec-id">04</span>
+      <span class="sec-title">Education &amp; Certifications</span>
+      <span class="sec-rule"></span>
     </div>
-    <div class="stat-card-gh">
-      <div class="num" style="color:#1A56DB;">AI/ML · Data · Cloud</div>
-      <div class="lbl">Focus areas</div>
+    <div class="edu-grid">
+      <div>
+        <h4>Education</h4>
+        <ul>
+          <li>M.Tech. — Data Science</li>
+          <li>B.E. — Computer Science</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Certifications</h4>
+        <ul>
+          <li>AWS Solutions Architect Associate</li>
+          <li>Google Data Analytics</li>
+          <li>Generative AI Roadmap</li>
+          <li>Ultimate RAG Bootcamp</li>
+        </ul>
+      </div>
     </div>
-  </div>
-  <div style="font-size:11px;color:var(--color-text-tertiary);text-align:center;">Live stats will auto-populate once repos are created and pinned</div>
+  </section>
 
-  <hr class="divider">
+  <footer id="contact">
+    <div class="big">Let's build something that ships.</div>
+    <a class="cta" href="mailto:youremail@example.com">→ youremail@example.com</a>
+    <div class="micro">devkumarsantosh.github.io — Indore, India</div>
+  </footer>
 
-  <div class="section-h">Certifications</div>
-  <div class="cert-row"><span class="cert-name">AWS Certified Solutions Architect – Associate</span><span class="cert-org">Amazon Web Services</span></div>
-  <div class="cert-row"><span class="cert-name">Google Data Analytics Professional Certificate</span><span class="cert-org">Google</span></div>
-  <div class="cert-row"><span class="cert-name">Ultimate RAG Bootcamp</span><span class="cert-org">Krishnaik.ai</span></div>
-  <div class="cert-row"><span class="cert-name">Complete Generative AI Roadmap</span><span class="cert-org">Krishnaik.ai</span></div>
-  <div class="cert-row"><span class="cert-name">Introduction to Machine Learning</span><span class="cert-org">Duke University</span></div>
-
-  <hr class="divider">
-
-  <div class="section-h">Currently building</div>
-  <div class="wip-item"><div class="wip-dot"></div>GraphRAG — Knowledge graph retrieval with Neo4j + LlamaIndex</div>
-  <div class="wip-item"><div class="wip-dot"></div>MCP Agent Platform — Multi-agent system with Model Context Protocol integrations</div>
-  <div class="wip-item"><div class="wip-dot"></div>LLMOps Framework — Ragas + DeepEval + Promptfoo evaluation pipeline</div>
-  <div class="wip-item"><div class="wip-dot"></div>LoRA Fine-tuning — Domain-adapted Llama 3.1 for enterprise knowledge tasks</div>
-
-  <hr class="divider">
-  <div class="footer-note">Building production AI systems · India · Open to Senior AI Engineer, LLM Engineer & AI Architect roles</div>
 </div>
+
+</body>
+</html>
